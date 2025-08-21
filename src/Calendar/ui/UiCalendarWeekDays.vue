@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, inject, ref, type Ref } from 'vue'
-import { getDayOfDate, getWeekDaysLine } from '../model/date'
+import { getDayOfDate, getWeekDaysLine, type CalendarDate } from '../model/date'
 import { weekDays } from '@/i18n/calendar'
 
 const lang = inject<Ref<keyof typeof weekDays>>('ui-calendar-lang', ref('en'))
 
-const date = defineModel<{ day: number; month: number; year: number }>('date', {
+const date = defineModel<CalendarDate>('date', {
   required: true,
 })
 

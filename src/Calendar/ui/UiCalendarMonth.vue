@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { inject } from 'vue'
-import { getDaysInMonth } from '../model/date'
+import { getDaysInMonth, type CalendarDate } from '../model/date'
 import { monthAbbr } from '../../i18n/calendar'
 
 const lang = inject('ui-calendar-lang', 'en')
 
-const date = defineModel<{ day: number; month: number; year: number }>('date', {
+const date = defineModel<CalendarDate>('date', {
   required: true,
 })
 

@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { CalendarDate } from '../model/date';
+
 type Props = {
   day: number
-  date: { day: number; month: number; year: number }
+  date: CalendarDate
   current: boolean
 }
 
