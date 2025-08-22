@@ -6,14 +6,13 @@ import UiCalendarLanguageSelect from './UiCalendarLanguageSelect.vue'
 import UiCalendarDayBtn from './UiCalendarDayBtn.vue'
 import UiCalendarWeekDays from './UiCalendarWeekDays.vue'
 import { getArrayOfDaysInMonth, formatDate, isCurrentDay, type CalendarDate } from '../model/date'
-import type { monthAbbr } from '@/i18n/calendar'
 
 // yyyy-mm-dd
 const dateValue = defineModel<string>()
 
 const currentDate = ref(new Date(dateValue.value || Date.now()))
 
-const languge = ref<keyof typeof monthAbbr>('en')
+const languge = ref<"en" | "ru">('en')
 provide('ui-calendar-lang', languge)
 
 const date = ref<CalendarDate>({

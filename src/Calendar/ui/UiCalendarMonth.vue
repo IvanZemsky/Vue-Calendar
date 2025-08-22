@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject, ref, type Ref } from 'vue'
 import { getDaysInMonth, type CalendarDate } from '../model/date'
-import { monthAbbr } from '../../i18n/calendar'
+import { monthsAbbr } from '../model/date'
+import { i18n } from '@/i18n/calendar'
 
-const lang = inject('ui-calendar-lang', 'en')
+const lang = inject<Ref<'ru' | 'en'>>('ui-calendar-lang', ref('en'))
 
 const date = defineModel<CalendarDate>('date', {
   required: true,
@@ -43,7 +44,9 @@ function setCorrectDay() {
       <span>&lt;</span>
     </button>
 
-    <p class="ui-calendar__month-value">{{ monthAbbr[lang][date.month] }} {{ date.year }}</p>
+    <p class="ui-calendar__month-value">
+     {{ i18n[lang].monthsAbbr[monthsAbbr[date.month]] }} {{ date.year }}
+    </p>
 
     <button class="ui-calendar__month-next" @click="handleSetNextMonth">
       <span>&gt;</span>

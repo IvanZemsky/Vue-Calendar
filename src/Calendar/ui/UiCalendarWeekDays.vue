@@ -1,21 +1,23 @@
 <script setup lang="ts">
 import { computed, inject, ref, type Ref } from 'vue'
 import { getDayOfDate, getWeekDaysLine, type CalendarDate } from '../model/date'
-import { weekDays } from '@/i18n/calendar'
+import { i18n } from '@/i18n/calendar'
 
-const lang = inject<Ref<keyof typeof weekDays>>('ui-calendar-lang', ref('en'))
+const lang = inject<Ref<'ru ' | 'en'>>('ui-calendar-lang', ref('en'))
 
 const date = defineModel<CalendarDate>('date', {
   required: true,
 })
 
 const dayOfDate = computed(() => getDayOfDate({ ...date.value, day: 1 }))
-const days = computed(() => getWeekDaysLine(dayOfDate.value, lang.value))
+const days = computed(() => getWeekDaysLine(dayOfDate.value))
 </script>
 
 <template>
   <div class="ui-calendar__week-days">
-    <p class="ui-calendar__week-day" v-for="day in days" :key="day" :day="day">{{ day }}</p>
+    <p class="ui-calendar__week-day" v-for="day in days" :key="day" :day="day">
+      {{ i18n[lang as 'en' | 'ru'].weekDays[day] }}
+    </p>
   </div>
 </template>
 

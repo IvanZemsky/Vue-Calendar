@@ -1,4 +1,19 @@
-import { weekDays } from '@/i18n/calendar'
+export const weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+
+export const monthsAbbr = [
+  'jan',
+  'feb',
+  'mar',
+  'apr',
+  'may',
+  'jun',
+  'jul',
+  'aug',
+  'sep',
+  'oct',
+  'nov',
+  'dec',
+]
 
 export type CalendarDate = {
   day: number
@@ -11,14 +26,13 @@ export function getDayOfDate(date: CalendarDate) {
   return day
 }
 
-// здесь было бы лучше подключить полноценный i18n, чтобы не засорять функцию и в целом код
-export function getWeekDaysLine(firstDay: number, lang: 'en' | 'ru' = 'en') {
+export function getWeekDaysLine(firstDay: number) {
   const limit = 6
 
   let current = firstDay
   const line: string[] = []
   for (let i = 0; i <= limit; i++) {
-    line.push(weekDays[lang][current])
+    line.push(weekDays[current])
     if (current >= 6) {
       current = 0
       continue

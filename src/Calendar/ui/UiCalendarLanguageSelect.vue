@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import type { monthAbbr } from '@/i18n/calendar'
-
 const lang = defineModel<'en' | 'ru'>({ required: true })
 
 function handleSetLanguage(event: Event) {
-  lang.value = (event.target as HTMLSelectElement).value as keyof typeof monthAbbr
+  lang.value = (event.target as HTMLSelectElement).value as 'en' | 'ru'
 }
 </script>
 

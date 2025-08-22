@@ -1,11 +1,57 @@
-// здесь было бы лучше подключить полноценный i18n, чтобы не засорять функцию и в целом код
+type I18n = Record<
+  'en' | 'ru',
+  { monthsAbbr: Record<string, string>; weekDays: Record<string, string> }
+>
 
-export const monthAbbr = {
-  'en': ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
-  'ru': ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
-}
-
-export const weekDays = {
-  'en': ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
-  'ru': ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
+export const i18n: I18n = {
+  en: {
+    monthsAbbr: {
+      jan: 'jan',
+      feb: 'feb',
+      mar: 'mar',
+      apr: 'apr',
+      may: 'may',
+      jun: 'jun',
+      jul: 'jul',
+      aug: 'aug',
+      sep: 'sep',
+      oct: 'oct',
+      nov: 'nov',
+      dec: 'dec',
+    },
+    weekDays: {
+      sun: 'sun',
+      mon: 'mon',
+      tue: 'tue',
+      wed: 'wen',
+      thu: 'thu',
+      fri: 'fri',
+      sat: 'sat',
+    },
+  },
+  ru: {
+    monthsAbbr: {
+      jan: 'янв',
+      feb: 'фев',
+      mar: 'мар',
+      apr: 'апр',
+      may: 'май',
+      jun: 'июн',
+      jul: 'июл',
+      aug: 'авг',
+      sep: 'сен',
+      oct: 'окт',
+      nov: 'ноя',
+      dec: 'дек',
+    },
+    weekDays: {
+      sun: 'вс',
+      mon: 'пн',
+      tue: 'вт',
+      wed: 'ср',
+      thu: 'чт',
+      fri: 'пт',
+      sat: 'сб',
+    },
+  },
 }
